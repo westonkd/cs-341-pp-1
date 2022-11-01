@@ -27,26 +27,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importStar(require("express"));
-const express_openid_connect_1 = require("express-openid-connect");
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const requestLogger_1 = __importDefault(require("../../middlware/requestLogger"));
-const auth_config_1 = __importDefault(require("../auth.config"));
 const event_routes_1 = __importDefault(require("./event.routes"));
-const user_routes_1 = __importDefault(require("./user.routes"));
-const auth_routes_1 = __importDefault(require("./auth.routes"));
 const meals_routes_1 = __importDefault(require("./meals.routes"));
 const swagger_output_json_1 = __importDefault(require("../../swagger-output.json"));
 const router = (0, express_1.Router)();
 // API docs
 router.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_output_json_1.default));
 // Login, logout, etc. with Auth0
-router.use((0, express_openid_connect_1.auth)(auth_config_1.default), requestLogger_1.default);
-// Custom auth routes
-router.use((0, auth_routes_1.default)(express_1.default.Router()));
+router.use(requestLogger_1.default);
 // Events
-router.use("/api/v1/events", (0, express_openid_connect_1.requiresAuth)(), (0, event_routes_1.default)(express_1.default.Router()));
-// Users
-router.use("/api/v1/users", (0, user_routes_1.default)(express_1.default.Router()));
+router.use("/api/v1/events", (0, event_routes_1.default)(express_1.default.Router()));
 // Meals
 router.use(meals_routes_1.default);
 // Custom 404 handler
