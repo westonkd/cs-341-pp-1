@@ -1,77 +1,77 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "Weston's Contacts API",
-    "description": "An open API for managing contacts",
-    "version": "1.0.0"
-  },
-  "host": "",
-  "basePath": "/",
-  "schemes": [
-    "http",
-    "https"
-  ],
-  "paths": {
-    "/api/v1/meals": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "ingredient",
-            "in": "query",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "meal",
-            "in": "body",
-            "description": "The meal to create",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "example": "cookies"
-                },
-                "ingredients": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "example": "Milk"
-                      },
-                      "quantity": {
-                        "type": "string",
-                        "example": "1 Cup"
-                      }
+    "swagger": "2.0",
+    "info": {
+        "title": "Weston's Contacts API",
+        "description": "An open API for managing contacts",
+        "version": "1.0.0"
+    },
+    "host": "",
+    "basePath": "/",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/api/v1/meals": {
+            "get": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "ingredient",
+                        "in": "query",
+                        "type": "string"
                     }
-                  }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
                 }
-              },
-              "required": [
-                "name"
-              ]
+            },
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "meal",
+                        "in": "body",
+                        "description": "The meal to create",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "cookies"
+                                },
+                                "ingredients": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Milk"
+                                            },
+                                            "quantity": {
+                                                "type": "string",
+                                                "example": "1 Cup"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
         }
-      }
     }
-  }
 }

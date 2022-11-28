@@ -5,11 +5,11 @@ const create = (req: Request, res: Response) => {
 };
 
 const show = (req: Request, res: Response) => {
-  res.json({});
+  res.json({ foo: "bar" });
 };
 
 const index = (req: Request, res: Response) => {
-  res.json([{}]);
+  res.send({ foo: "changed" });
 };
 
 const update = (req: Request, res: Response) => {

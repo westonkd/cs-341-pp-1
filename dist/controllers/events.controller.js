@@ -10,7 +10,7 @@ const show = (req, res) => {
 };
 exports.show = show;
 const index = (req, res) => {
-    res.json([{}]);
+    res.json("Hello World");
 };
 exports.index = index;
 const update = (req, res) => {
